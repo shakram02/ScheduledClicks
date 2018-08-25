@@ -7,5 +7,5 @@ The script does the following
 - Waits for a period of time (while moving the mouse)
 - Performs mouse clicks
 
-# Thank you 
+### Thank you 
 [Pynput - HOWTO](http://nitratine.pythonanywhere.com/youtube/simulate-mouse-events-in-python)
