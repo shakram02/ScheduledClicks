@@ -9,16 +9,19 @@ def move_click_left(mouse, x, y):
     mouse.click(Button.left)
 
 
-def prevent_lock(mouse, will_wait, move_delay=5.0):
+def prevent_lock(mouse, will_wait, move_delay=60.0):
     """Moves the mouse cursor randomly so the screen doesn't lock"""
     while will_wait():
-        mouse.position = (random.randint(0, 800), random.randint(0, 800))
+        random_position = (random.randint(0, 800), random.randint(0, 800))
+        print("Moving to:", random_position)
+
+        mouse.position = random_position
         sleep(move_delay)
 
 
 def main():
     mouse = Controller()
-    delay_secs = 3
+    delay_secs = 3 * 60 * 60  # Wait 3 hours
     sleeper = Thread(target=sleep, args=(delay_secs,), daemon=True)
     sleeper.start()
 
@@ -26,9 +29,9 @@ def main():
 
     # Open the menu
     move_click_left(mouse, 76, 71)
-
+    sleep(1)
     # Click resume download
-    # move_click_left(mouse, 81, 167)
+    move_click_left(mouse, 81, 167)
 
 
 if __name__ == "__main__":
